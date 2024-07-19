@@ -6,9 +6,14 @@ import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
 import Table from '@/app/ui/invoices/table';
 import { fetchInvoicesPages } from '@/app/lib/data';
 import Pagination from '@/app/ui/invoices/pagination';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Invoices',
+};
 
 export default async function Page({
-  searchParams
+  searchParams,
 }: {
   searchParams?: {
     query?: string,
@@ -33,7 +38,7 @@ export default async function Page({
         <Table query={query} currentPage={currentPage} />
       </Suspense>
       <div className="mt-5 flex w-full justify-center">
-         <Pagination totalPages={totalPages} />
+        <Pagination totalPages={totalPages} />
       </div>
     </div>
   );
